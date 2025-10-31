@@ -1,4 +1,4 @@
-我目前在复旦大学计算机科学与人工智能学院攻读计算机科学硕士学位。
+目前在复旦大学计算与智能创新攻读计算机科学硕士学位
 
 #### Email  
 <code>25213050060@m.fudan.edu.cn</code>  
@@ -7,16 +7,18 @@
 #### 教育经历  
 **复旦大学**，计算机科学与技术 硕士（2025.9 – ）   
 • 课题组：Alex Research Group
-• 指导教师：曹艺馨教授
+• 导师：曹艺馨
 
 **华东师范大学**，计算机科学与技术 学士（2021.9 – 2025.7）  
 • GPA：3.84/4（前 5%）  
+• 课题组: Alex Research Group
+• 导师: 李洋
 
 #### 研究兴趣  
 LLM、LLM 机制、LLM 训练。
 
 
-I'm currently pursuing a Master's degree in Computer Science at the College of Computer Science and Artificial Intelligence, Fudan University.
+I'm currently pursuing a Master's degree in Computer Science at the College of Computer Science and Artificial Intelligence, Fudan University
 
 #### Email  
 <code>25213050060@m.fudan.edu.cn</code>  
