@@ -1,6 +1,1 @@
-- XXXXXXX论文
-
-- XXXXXXX论文
-
-- XXXXXXX论文
-
+- ChatTracker: Enhancing Visual Tracking Performance via Chatting with Multimodal Large Language Model. [NeurIPS2024] https://arxiv.org/pdf/2411.01756
