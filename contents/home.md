@@ -1,4 +1,4 @@
-目前在复旦大学计算与智能创新攻读计算机科学硕士学位
+目前在复旦大学计算与智能创新学院攻读计算机科学硕士学位
 
 #### Email  
 <code>25213050060@m.fudan.edu.cn</code>  
@@ -18,7 +18,7 @@
 LLM、LLM 机制、LLM 训练。
 
 
-I'm currently pursuing a Master's degree in Computer Science at the College of Computer Science and Artificial Intelligence, Fudan University
+I'm currently pursuing a Master's degree at the College of Computer Science and Artificial Intelligence, Fudan University.
 
 #### Email  
 <code>25213050060@m.fudan.edu.cn</code>  
