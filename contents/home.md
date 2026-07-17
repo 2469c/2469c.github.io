@@ -15,7 +15,7 @@
 • 导师: 李洋
 
 #### 研究兴趣  
-LLM、LLM 机制、LLM 训练。
+LLM、LLM 机制、Agent、Agent评估。
 
 
 I'm currently pursuing a Master's degree at the College of Computer Science and Artificial Intelligence, Fudan University.
@@ -35,4 +35,4 @@ I'm currently pursuing a Master's degree at the College of Computer Science and 
 • Supervisor: Prof. Yang Li
 
 #### Research Interests  
-LLM, LLM Mechanism, LLM Training.
+LLM, LLM Mechanism, Agent, Agent Evaluation.

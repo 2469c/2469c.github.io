@@ -1,63 +1,51 @@
-const content_dir = 'contents/'
-const config_file = 'config.yml'
-const section_names = ['home', 'awards', 'experience', 'publications'];
+window.addEventListener('DOMContentLoaded', () => {
 
-
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
+    // Language switch
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+            const next = current === 'en' ? 'zh' : 'en';
+            document.documentElement.setAttribute('data-lang', next);
+            document.documentElement.setAttribute('lang', next);
+            try { localStorage.setItem('site-lang', next); } catch (e) { }
         });
-    };
+    }
 
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+    if (toggle && navLinks) {
+        toggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
         });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    }
+
+    // Scrollspy: highlight the nav link of the section in view
+    const spyLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const spyMap = new Map();
+    spyLinks.forEach(a => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) spyMap.set(el, a);
     });
-
-
-    // Yaml
-    fetch(content_dir + config_file)
-        .then(response => response.text())
-        .then(text => {
-            const yml = jsyaml.load(text);
-            Object.keys(yml).forEach(key => {
-                try {
-                    document.getElementById(key).innerHTML = yml[key];
-                } catch {
-                    console.log("Unknown id and value: " + key + "," + yml[key].toString())
+    if ('IntersectionObserver' in window && spyMap.size) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    spyLinks.forEach(a => a.classList.remove('active'));
+                    spyMap.get(entry.target)?.classList.add('active');
                 }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        spyMap.forEach((_, el) => observer.observe(el));
+    }
 
-            })
-        })
-        .catch(error => console.log(error));
-
-
-    // Marked
-    marked.use({ mangle: false, headerIds: false })
-    section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById(name + '-md').innerHTML = html;
-            }).then(() => {
-                // MathJax
-                MathJax.typeset();
-            })
-            .catch(error => console.log(error));
-    })
-
-}); 
+});
